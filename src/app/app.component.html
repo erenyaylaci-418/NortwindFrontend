@@ -8,8 +8,19 @@
   <li>Laptop</li>
   <li>Mouse</li>
 </ul> -->
-<app-navi></app-navi>
-<app-category></app-category>
-<app-product></app-product>
+
+<div class = "container">
+    <app-navi></app-navi>
+    <div class = "row">
+      <div class = "col-md-3"> 
+          <app-category></app-category>
+      </div>
+      <div class = "col-md-9">
+          <app-product></app-product>
+      </div>   
+  </div>
+  
+</div>
+
 
 <router-outlet></router-outlet>
