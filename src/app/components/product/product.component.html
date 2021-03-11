@@ -1,4 +1,19 @@
-<table class="table">
+<div *ngIf = "dataLoaded ==false" class="text-center">
+  <button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+</div>
+<table *ngIf = "dataLoaded == true" class="table">
+<thead>
+    <tr> 
+        <th>Id</th>
+        <th>Ürün Adı</th>
+        <th>Kategori Id</th>
+        <th>Fiyat</th>
+        <th>Stok</th>
+    </tr>
+</thead>
     <tr *ngFor = "let product of products">
         <td>{{product.productId}}</td>
         <td>{{product.productName}}</td>

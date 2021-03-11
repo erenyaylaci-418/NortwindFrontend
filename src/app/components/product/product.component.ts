@@ -1,33 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
-import { HttpClient } from '@angular/common/http';
 import { ProductResponseModel } from 'src/app/models/productResponseModel';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-
-
-    products: Product[] = [];
-    productResponseModel: ProductResponseModel = {
+  products: Product[] = [];
+  productResponseModel: ProductResponseModel = {
     data: this.products,
-    message: "",
-    success: true
+    message: '',
+    success: true,
   };
-  apiUrl = "https://localhost:44399/api/products/getall";
-  constructor(private httpClient: HttpClient) { }
+  dataLoaded = false;
+  
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    console.log("product çalıştı");
+    console.log('product çalıştı');
     this.getProducts();
   }
-
-  getProducts() {
-    this.httpClient.get<ProductResponseModel>(this.apiUrl).subscribe((response) => {
+    
+  getProducts(){
+    this.productService.getProducts().subscribe(response => {
       this.products = response.data;
+      this.dataLoaded = true;
     });
+
   }
+  
 }
