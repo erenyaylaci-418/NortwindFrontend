@@ -1,7 +1,22 @@
-<ul class="list-group">
-  <li class="list-group-item">An item</li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
-  <li class="list-group-item">A fourth item</li>
-  <li class="list-group-item">And a fifth one</li>
-</ul>
+<div *ngIf="dataLoaded == false" class="text-center">
+  <button class="btn btn-primary" type="button" disabled>
+    <span
+      class="spinner-border spinner-border-sm"
+      role="status"
+      aria-hidden="true"
+    ></span>
+    Loading...
+  </button>
+</div>
+<div class="list-group">
+  <a
+    href="#"
+    (click)="setCurrentCategory(category)"
+    *ngFor="let category of categories"
+    [ngClass]="getCurrentCategoryClass(category)"
+    >{{ category.categoryName }}</a
+  >
+</div>
+<h5 *ngIf="currentCategory != null">
+  {{ currentCategory.categoryName }} seçtiniz.
+</h5>
