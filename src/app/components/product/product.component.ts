@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
+  filterText ="";
   productResponseModel: ListResponseModel<Product> = {
     data: this.products,
     message: '',
@@ -46,5 +47,6 @@ export class ProductComponent implements OnInit {
     });
 
   }
+  
   
 }
