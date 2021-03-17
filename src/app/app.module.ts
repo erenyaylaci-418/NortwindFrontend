@@ -10,6 +10,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { ActivatedRoute } from '@angular/router';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FormsModule } from '@angular/forms';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     CategoryComponent,
     NaviComponent,
     VatAddedPipe,
+    FilterPipePipe,
    
   ],
   imports: [
