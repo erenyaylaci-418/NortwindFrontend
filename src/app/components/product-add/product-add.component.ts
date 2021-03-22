@@ -35,7 +35,7 @@ export class ProductAddComponent implements OnInit {
         console.log(response)
         this.toastrService.success(response.message,"Başarılı")
       },responseError=> {
-        this.toastrService.error(responseError.message[],"Başarısız")
+        this.toastrService.error(responseError.error)
       });
     
       console.log(producttModel)
